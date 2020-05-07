@@ -46,6 +46,8 @@ stages:
       workingDirectory: $(rootFolder)
       displayName: 'Composer install'
 
+    - script: echo 'AUTH_METHODS="NOAUTH"' > .env
+
     - task: ArchiveFiles@2
       displayName: 'Archive files'
       inputs:
