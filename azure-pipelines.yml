@@ -48,10 +48,6 @@ stages:
 
     - script: echo 'AUTH_METHODS="NOAUTH"' > .env
     
-    - script: ln -s public/index.php index.php
-    
-    - script: chmod -R 777 app/db/
-
     - task: ArchiveFiles@2
       displayName: 'Archive files'
       inputs:
@@ -84,3 +80,7 @@ stages:
               azureSubscription: $(azureSubscription)
               appName: $(webAppName)
               package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
+          
+          - script: chmod -R 777 app/db/
+          
+          - script: php database/migrate.php 
