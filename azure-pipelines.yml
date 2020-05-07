@@ -47,7 +47,11 @@ stages:
       displayName: 'Composer install'
 
     - script: echo 'AUTH_METHODS="NOAUTH"' > .env
-    
+
+    - script: chmod -R 777 ./app/db/
+          
+    - script: php ./database/migrate.php 
+          
     - task: ArchiveFiles@2
       displayName: 'Archive files'
       inputs:
@@ -80,8 +84,3 @@ stages:
               azureSubscription: $(azureSubscription)
               appName: $(webAppName)
               package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
-          
-          - script: chmod -R 777 $(Pipeline.Workspace)/app/db/
-          
-          - script: php $(Pipeline.Workspace)/database/migrate.php 
-          
