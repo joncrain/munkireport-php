@@ -47,6 +47,10 @@ stages:
       displayName: 'Composer install'
 
     - script: echo 'AUTH_METHODS="NOAUTH"' > .env
+    
+    - script: ln -s public/index.php index.php
+    
+    - script: chmod -R 777 app/db/
 
     - task: ArchiveFiles@2
       displayName: 'Archive files'
