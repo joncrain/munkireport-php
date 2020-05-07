@@ -81,8 +81,7 @@ stages:
               appName: $(webAppName)
               package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
           
-          - script: chmod -R 777 /home/vsts/work/1/app/db/
+          - script: chmod -R 777 $(Pipeline.Workspace)/app/db/
           
-          - script: php /home/vsts/work/1/database/migrate.php 
+          - script: php $(Pipeline.Workspace)/database/migrate.php 
           
-          - script: echo $pwd
