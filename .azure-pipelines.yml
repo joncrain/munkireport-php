@@ -5,8 +5,7 @@
 
 trigger:
 - wip
-pr:
-- wip
+- master
 
 variables:
   # Azure Resource Manager connection created during pipeline creation
