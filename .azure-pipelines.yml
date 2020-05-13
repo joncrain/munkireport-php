@@ -10,7 +10,7 @@ pr:
 
 variables:
   # Azure Resource Manager connection created during pipeline creation
-  azureSubscription: 'a665d8e7-042d-4712-8c74-6e50682a9cd3'
+  azureSubscription: $(azuresub)
   
   # Web app name
   webAppName: 'munkireport'
