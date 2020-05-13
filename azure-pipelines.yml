@@ -46,11 +46,11 @@ stages:
       workingDirectory: $(rootFolder)
       displayName: 'Composer install'
 
-    - script: echo 'AUTH_METHODS="NOAUTH"' > .env
-
     - script: chmod -R 777 ./app/db/
           
-    - script: php ./database/migrate.php 
+    - script: php ./database/migrate.php
+    
+    - script: php ./database/faker.php
           
     - task: ArchiveFiles@2
       displayName: 'Archive files'
