@@ -9,7 +9,7 @@ trigger:
 
 variables:
   # Azure Resource Manager connection created during pipeline creation
-  azureSubscription: $(azuresub)
+  azureSubscription: '$(azuresub)'
   
   # Web app name
   webAppName: 'munkireport'
